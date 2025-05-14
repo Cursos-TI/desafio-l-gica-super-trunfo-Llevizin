@@ -4,7 +4,8 @@
 // Função Principal do Programa
 int main(){
 
-    char estado1[3]; // Declara um array de 3 caracteres
+   char pais1[20]; // Declara um array de 20 caracteres
+    char estado1[4]; // Declara um array de 4 caracteres
     char codigo_carta1[4]; // Declara um array de 4 caracteres
     char nome_cidade1[20]; // Declara um array de 20 caracteres
     int populacao1; // Declara uma variável do tipo int
@@ -15,7 +16,8 @@ int main(){
     float densidade_populacional1; // Declara uma variáveldo do tipo float
     float pib_per_capita1; // Declara uma variável do tipo float
 
-    char estado2[3]; // Declara um array de 3 caracteres
+    char pais2[20]; // Declara um array de 20 caracteres
+    char estado2[4]; // Declara um array de 4 caracteres
     char codigo_carta2[4]; // Declara um array de 4 caracteres
     char nome_cidade2[20]; // Declara um array de 20 caracteres
     int populacao2; // Declara uma variável do tipo int
@@ -30,15 +32,19 @@ int main(){
     // Entrada de dados da Carta 1
     printf("Digite os dados da Carta 1\n"); // Exibe o título para a entrada da Carta 1
 
-    printf("Digite o estado(ex: SP): "); // Solicita o estado
-    scanf("%s", &estado1); // Lê o estado
+    printf("Digite o País: "); // Solicita o nome do país
+    fgets(pais1, sizeof(pais1), stdin); // Lê uma linha (pais1), incluindo espaços
+    pais1[strcspn(pais1, "\n")] = '\0'; // Remove o '\n' (quebra de linha) do final da string
 
-    printf("Digite a letra do estado seguida de um número de 01 a 04(ex: A01): "); // Solicita o código da cidade
-    scanf("%s", &codigo_carta1); // Lê o código com até 3 caracteres
+    printf("Digite o estado(ex: SP): "); // Solicita o estado
+    scanf("%2s", &estado1); // Lê o estado
+
+    printf("Digite a letra do estado seguida de um número de 01 a 04(ex: S01): "); // Solicita o código da cidade
+    scanf("%3s", &codigo_carta1); // Lê o código com até 3 caracteres
 
     printf("Digite o nome da cidade: "); // Solicita o nome da cidade
     getchar(); // Limpa o "enter" deixado no buffer pelo scanf anterior
-    fgets(nome_cidade1, 20, stdin); // Lê uma linha (nome_cidade1), incluindo espaços
+    fgets(nome_cidade1, sizeof(nome_cidade1), stdin); // Lê uma linha (nome_cidade1), incluindo espaços
     nome_cidade1[strcspn(nome_cidade1, "\n")] = '\0'; // Remove o '\n' (quebra de linha) do final da string
 
     printf("Número de habitantes: "); // Solicita o número de habitantes
@@ -57,15 +63,20 @@ int main(){
     // Entrada de dados da Carta 2
     printf("\nDigite os dados da Carta 2\n"); // Exibe o título para a entrada da Carta 2
 
-    printf("Digite o estado(ex: SP): "); // Solicita o estado 
-    scanf("%s", &estado2); // Lê o estado
+    printf("Digite o País: "); // Solicita o nome do país
+    getchar(); // Limpa o "enter" deixado no buffer pelo scanf anterior
+    fgets(pais2, sizeof(pais2), stdin); // Lê uma linha (pais2), incluindo espaços
+    pais2[strcspn(pais2, "\n")] = '\0'; // Remove o '\n' (quebra de linha) do final da string
 
-    printf("Digite a letra do estado seguida de um número de 01 a 04(ex: A01): "); // Solicita o código da cidade
-    scanf("%s", &codigo_carta2); // Lê o código com até 3 caracteres
+    printf("Digite o estado(ex: SP): "); // Solicita o estado 
+    scanf("%2s", &estado2); // Lê o estado
+
+    printf("Digite a letra do estado seguida de um número de 01 a 04(ex: S01): "); // Solicita o código da cidade
+    scanf("%3s", &codigo_carta2); // Lê o código com até 3 caracteres
 
     printf("Digite o nome da cidade: "); // Solicita o nome da cidade
     getchar(); // Limpa o "enter" deixado no buffer pelo scanf anterior
-    fgets(nome_cidade2, 20, stdin); // Lê uma linha (nome_cidade1), incluindo espaços
+    fgets(nome_cidade2, sizeof(nome_cidade2), stdin); // Lê uma linha (nome_cidade1), incluindo espaços
     nome_cidade2[strcspn(nome_cidade2, "\n")] = '\0'; // Remove o '\n' (quebra de linha) do final da string
 
     printf("Número de habitantes: "); // Solicita o número de habitantes
@@ -93,6 +104,7 @@ int main(){
 
     // Exibição de dados Carta 1
     printf("\nCarta 1:\n"); // Função usada pra exibir a mensagem "Carta 1"
+    printf("País: %s\n", pais1); // Função usada para exibir os dados q estão armazenados na variável "pais1"
     printf("Estado: %s\n", estado1); // Função usada para exibir os dados que estão armazenado na variável "estado1"
     printf("Código: %s\n", codigo_carta1); // Função usada para exibir os dados que estão armazenado na variável "codigo_carta1"
     printf("Nome da Cidade: %s\n", nome_cidade1); // Função usada para exibir os dados que estão armazenado na variável "nome_cidade1"
@@ -105,6 +117,7 @@ int main(){
 
     // Exibição de dados Carta 2
     printf("\nCarta 2:\n"); // Função usada pra exibir a mensagem "Carta 2"
+    printf("País: %s\n", pais2); // Função usada para exibir os dados q estão armazenados na variável "pais2"
     printf("Estado: %s\n", estado2); // Função usada para exibir os dados que estão armazenado na variável "estado2"
     printf("Código: %s\n", codigo_carta2); // Função usada para exibir os dados que estão armazenado na variável "codigo_carta2"
     printf("Nome da Cidade: %s\n", nome_cidade2); // Função usada para exibir os dados que estão armazenado na variável "nome_cidade2"
@@ -114,7 +127,6 @@ int main(){
     printf("Número de pontos turísticos: %d\n", numero_pontos_turisticos2); // Função usada para exibir os dados que estão armazenado na variável "numero_pontos_turisticos2"
     printf("Densidade Populacional: %.2f hab/km²\n", densidade_populacional2 ); // Funçao usada para exibir os dados que estão armazenados na variável "densidade_pupulacional1"
     printf("PIB per Capita: %.2f reais\n", pib_per_capita2); // Função usada para exibir os dados que estão armazenados na variável "pib_per_capita1"
-
 
     // Comparação de Cartas - Atributo População
     printf("\nComparação de Cartas (Atributo: População): \n"); // 
