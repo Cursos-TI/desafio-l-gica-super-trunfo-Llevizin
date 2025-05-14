@@ -4,7 +4,7 @@
 // Função Principal do Programa
 int main(){
 
-   char pais1[20]; // Declara um array de 20 caracteres
+    char pais1[20]; // Declara um array de 20 caracteres
     char estado1[4]; // Declara um array de 4 caracteres
     char codigo_carta1[4]; // Declara um array de 4 caracteres
     char nome_cidade1[20]; // Declara um array de 20 caracteres
